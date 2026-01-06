@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MlService } from '../services/ml'; // adjust path
 
 @Component({
   selector: 'app-tab1',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private ml: MlService) {}
 
+  async test() {
+    const res = await this.ml.init();
+    console.log('loadModel result:', res);
+  }
 }
